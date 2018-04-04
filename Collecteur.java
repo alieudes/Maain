@@ -123,20 +123,25 @@ public class Collecteur {
 				if (arr.size() > 0) {
 					
 					fw.write((String)pair.getKey()+" : ");
+					fw.flush();
 					System.out.print(pair.getKey()+" : ");
 					for (Integer i : arr) {
 						System.out.print(i+",");
-						fw.write(i);
+						fw.write(i.toString());
+						fw.flush();
 						fw.write(",");
+						fw.flush();
 					}
 					System.out.println();
 					fw.write("\n");
+					fw.flush();
 				}
 				
 				
 
 				it.remove();
 			}
+			fw.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
